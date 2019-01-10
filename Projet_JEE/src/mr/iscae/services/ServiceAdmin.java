@@ -22,4 +22,16 @@ public class ServiceAdmin {
 		}
 		return "Bienvenu Admin !!!";
 	}
+	
+	//Fonction pour PUT, modifier mot de passe 
+	public String changePass(String login,String motpass){
+		Admin adm = Admins.get(login);
+		if(adm==null){
+			return "Admin n'existe pas !!";
+		}else{
+			adm.setMotpasse(motpass);
+			Admins.put(login, adm);
+			return "Mot de passe est modifié avec succès";
+		}
+	}
 }
